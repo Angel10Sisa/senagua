@@ -52,6 +52,14 @@
         <servlet-name>ControlTipoMedidor1</servlet-name>
         <servlet-class>com.senagua.controlador.ControlIngresoTipoMedidor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorTipoMedidorEd</servlet-name>
+        <servlet-class>com.senagua.controlador.ControladorEditarTipoMedidor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlTipoMedidorE</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEliminarTipoMedidor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>ControlTipoMedidor1</servlet-name>
         <url-pattern>/IngresoTipoMedidor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorTipoMedidorEd</servlet-name>
+        <url-pattern>/EditarTipoMedidor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoMedidorE</servlet-name>
+        <url-pattern>/EliminarTipoMedidor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
