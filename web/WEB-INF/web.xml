@@ -44,6 +44,14 @@
         <servlet-name>ControlCliente</servlet-name>
         <servlet-class>com.senagua.controlador.ControlMostrarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlTipoMedidor</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarTipoMedidor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlTipoMedidor1</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoTipoMedidor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>ControlCliente</servlet-name>
         <url-pattern>/MostrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoMedidor</servlet-name>
+        <url-pattern>/MostrarTipoMedidor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoMedidor1</servlet-name>
+        <url-pattern>/IngresoTipoMedidor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
