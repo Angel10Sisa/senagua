@@ -60,6 +60,18 @@
         <servlet-name>ControlTipoMedidorE</servlet-name>
         <servlet-class>com.senagua.controlador.ControlEliminarTipoMedidor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlMosMulta</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarMulta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlMulta</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoMulta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlEdMulta</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEditarMulta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -119,6 +131,18 @@
     <servlet-mapping>
         <servlet-name>ControlTipoMedidorE</servlet-name>
         <url-pattern>/EliminarTipoMedidor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlMosMulta</servlet-name>
+        <url-pattern>/MostrarMulta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlMulta</servlet-name>
+        <url-pattern>/IngresoMulta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlEdMulta</servlet-name>
+        <url-pattern>/EditarMulta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

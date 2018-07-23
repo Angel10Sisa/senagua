@@ -62,6 +62,6 @@
                 %>
             </table>
         </form>
-            <a href="menutipocliente.jsp">MENU TIPO CLIENTE</a>
+            <a href="menutipomedidor.jsp">MENU TIPO MEDIDOR</a>
     </body>
 </html>
