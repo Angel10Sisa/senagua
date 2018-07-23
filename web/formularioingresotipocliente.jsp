@@ -12,7 +12,7 @@
         <title>SENAGUA</title>
     </head>
     <body>
-        <h1>INGRESO DE EMPLEADO</h1>
+        <h1>INGRESO DE TIPO CLIENTE</h1>
         <form name="sn" action="lIngresoTipoCliente" method="POST">
             <table border="1">
                 <tr>

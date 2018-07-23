@@ -45,12 +45,12 @@
                     <td><%=tipo.getMulta()%></td>
                     <td><%=tipo.getObservacion()%></td>
                     <td>
-                        <a href="xxxxx.jsp?ci=<%=tipo.getIdtipomedidor()%>" title="Editar Tipo Cliente" style="cursor:pointer">
+                        <a href="formularioeditartipomedidor.jsp?ci=<%=tipo.getIdtipomedidor()%>" title="Editar Tipo Medidor" style="cursor:pointer">
                             <img src="images/editar.png" alt="" width="30" height="30"/>
                         </a>
                     </td>                
                     <td>
-                        <a href="xxxxx.jsp?ci=<%=tipo.getIdtipomedidor()%>" title="Eliminar Tipo Cliente" style="cursor:pointer">
+                        <a href="formularioeliminartipomedidor.jsp?ci=<%=tipo.getIdtipomedidor()%>" title="Eliminar Tipo Medidor" style="cursor:pointer">
                             <img src="images/eliminar.png" alt="" width="30" height="30"/>
                         </a>
                     </td>

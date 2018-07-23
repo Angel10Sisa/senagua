@@ -15,7 +15,7 @@
         <title>SENAGUA</title>
     </head>
     <body>
-        <h1>INGRESO TIPO CLIENTE</h1>
+        <h1>EDITAR TIPO CLIENTE</h1>
         <%
             String co = request.getParameter("ci");
             int cod = Integer.parseInt(co);
