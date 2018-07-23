@@ -16,5 +16,6 @@
         <h3><a href="MostrarEmpleado">Listar Empleados</a></h3>
         <h3><a href="formularioingresoempleado.jsp">Ingreso Empleados</a></h3>
         <h3><a href="formulariobuscarempleado.jsp">Buscar Empleados</a></h3>
+        <h3><a href="inicio.jsp">INICIO</a></h3>
     </body>
 </html>

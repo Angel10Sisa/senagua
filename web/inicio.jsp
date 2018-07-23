@@ -15,6 +15,7 @@
     <center>
         <h1>Bienvenidos</h1>
         <h3><a href="menuempleado.jsp">Empleados</a></h3>
+        <h3><a href="menutipocliente.jsp">Tipo Cliente</a></h3>
     </center>
     </body>
 </html>
