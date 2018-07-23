@@ -40,6 +40,10 @@
         <servlet-name>ControlTipoClienteel</servlet-name>
         <servlet-class>com.senagua.controlador.ControlEliminarTipoCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlCliente</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ControlTipoClienteel</servlet-name>
         <url-pattern>/EliminarTipoCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlCliente</servlet-name>
+        <url-pattern>/MostrarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
