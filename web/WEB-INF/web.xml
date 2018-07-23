@@ -24,6 +24,22 @@
         <servlet-name>ControlEmpleadoNombre</servlet-name>
         <servlet-class>com.senagua.controlador.ControlBuscarEmpleadoNombre</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlTipoEmpleado</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarTipoCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlTipoCliente</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoTipoCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlTipoClienteEd</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEditarTipoCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlTipoClienteel</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEliminarTipoCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>ControlEmpleadoNombre</servlet-name>
         <url-pattern>/BuscarEmpleadoNombre</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoEmpleado</servlet-name>
+        <url-pattern>/MostrarTipoEmpleado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoCliente</servlet-name>
+        <url-pattern>/lIngresoTipoCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoClienteEd</servlet-name>
+        <url-pattern>/EditarTipoCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlTipoClienteel</servlet-name>
+        <url-pattern>/EliminarTipoCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
