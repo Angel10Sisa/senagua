@@ -10,20 +10,16 @@ import com.senagua.dao.imp.MultaImp;
 import com.senagua.rnegocio.entidades.Multa;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author Usuario
+ * @author Angel-Pc
  */
-public class ControlEditarMulta extends HttpServlet {
+public class ControlEliminarMulta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,42 +38,33 @@ public class ControlEditarMulta extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControlEditarMulta</title>");            
+            out.println("<title>Servlet ControlEliminarMulta</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> Angel Servlet ControlEditarMulta at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControlEliminarMulta at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");*/
-            String cod = request.getParameter("txtCodigo");
-            int codigo = Integer.parseInt(cod);
-            String nombre = request.getParameter("txtNombre");
-            String val = request.getParameter("txtValor");
-            double valor = Double.parseDouble(val);
-            String fech = request.getParameter("txtFecha");
-            String descripcion = request.getParameter("txtDescripcion");            
-            int modificar=0;
-            Multa multa=new Multa();
-            IMulta dao=new MultaImp();
-            IMulta dao1=new MultaImp();            
+            String cod=request.getParameter("txtCodigo"); 
+            int codigo=Integer.parseInt(cod);
+            int eliminar=0;
             try {
-                multa=dao.obtener(codigo);
-                out.println(multa.getNombre());
-                multa.setNombre(nombre);
-                multa.setValor(valor);
-                multa.setDescripcion(descripcion);
-                modificar=dao1.modificar(multa);
+                Multa multa=new Multa();
+                IMulta dao1=new MultaImp();
+                multa=dao1.obtener(codigo);
+                eliminar=dao1.eliminar(multa);
             } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            if (modificar > 0) {
-                String error = "Multa Modificado.";
-                request.getSession().setAttribute("error", error);
-                request.getRequestDispatcher("menumulta.jsp").forward(request, response);
-            } else {
-                String error = "No se puedo guardar Datos.";
-                request.getSession().setAttribute("error", error);
-                System.out.println(error);
-                //request.getRequestDispatcher("inicio.jsp").forward(request, response);
-            }
+            if (eliminar > 0) {
+                    String error = "Multa Elimnado.";
+                    request.getSession().setAttribute("error", error);
+                    request.getRequestDispatcher("menumulta.jsp").forward(request, response);
+                } else {
+                    String error = "No se puedo guardar Datos.";
+                    request.getSession().setAttribute("error", error);
+                    System.out.println(error);
+                    //request.getRequestDispatcher("inicio.jsp").forward(request, response);
+                }
         }
     }
 

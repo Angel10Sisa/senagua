@@ -53,7 +53,7 @@
                         </a>
                     </td>                
                     <td>
-                        <a href="xxxx.jsp?ci=<%=multa.getIdmulta()%>" title="Eliminar Multa" style="cursor:pointer">
+                        <a href="formularioeliminarmulta.jsp?ci=<%=multa.getIdmulta()%>" title="Eliminar Multa" style="cursor:pointer">
                             <img src="images/eliminar.png" alt="" width="30" height="30"/>
                         </a>
                     </td>

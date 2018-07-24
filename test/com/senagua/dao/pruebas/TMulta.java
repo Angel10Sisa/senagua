@@ -8,9 +8,12 @@ package com.senagua.dao.pruebas;
 import com.senagua.dao.contrato.IMulta;
 import com.senagua.dao.imp.MultaImp;
 import com.senagua.rnegocio.entidades.Multa;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -39,6 +42,13 @@ public class TMulta {
          //MODIFICAR        
         int modificados = 0;
         multa.setNombre("Prueba2");
+        multa.setValor(45.0);
+        DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            multa.setFecha(formato.parse("20-08-2013"));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
         multa.setDescripcion("Descripción");
         try {
             modificados = dao.modificar(multa);

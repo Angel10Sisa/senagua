@@ -1,12 +1,12 @@
 <%-- 
-    Document   : formularioeliminartipomedidor
-    Created on : 23-jul-2018, 16:32:46
-    Author     : Usuario
+    Document   : formularioeliminarmulta
+    Created on : 23-jul-2018, 22:29:53
+    Author     : Angel-Pc
 --%>
 
-<%@page import="com.senagua.dao.contrato.ITipomedidor"%>
-<%@page import="com.senagua.dao.imp.TipomedidorImp"%>
-<%@page import="com.senagua.rnegocio.entidades.Tipomedidor"%>
+<%@page import="com.senagua.dao.contrato.IMulta"%>
+<%@page import="com.senagua.dao.imp.MultaImp"%>
+<%@page import="com.senagua.rnegocio.entidades.Multa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,22 +15,22 @@
         <title>SENAGUA</title>
     </head>
     <body>
-        <h1>Eliminar Tipo Medidor</h1>
+        <h1>Eliminar Multa</h1>
         <%
             String cod = request.getParameter("ci");
             int codigo=Integer.parseInt(cod);
-            String caracteristica="";
-            double multa=0;
-            Tipomedidor tipo = new Tipomedidor();
-            ITipomedidor dao1 = new TipomedidorImp();
+            String nombre="";
+            double valor=0;
+            Multa multa = new Multa();
+            IMulta dao1 = new MultaImp();
             try {
-                tipo = dao1.obtener(codigo);
-                caracteristica=tipo.getCaracteristica();
-                multa=tipo.getMulta();
+                multa = dao1.obtener(codigo);
+                nombre=multa.getNombre();
+                valor=multa.getValor();
             } catch (Exception e) {
             }
         %>
-        <form name="sn" action="EliminarTipoMedidor" method="POST">
+        <form name="sn" action="EliminarMulta" method="POST">
             <table border="0">               
                 <tr>
                     <td>Codigo:</td>
@@ -39,12 +39,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Caracteristica:</td>
-                    <td><%=caracteristica%></td>
+                    <td>Nombre:</td>
+                    <td><%=nombre%></td>
                 </tr>
                 <tr>
-                    <td>Multa:</td>
-                    <td><%=multa%></td>
+                    <td>Valor</td>
+                    <td><%=valor%></td>
                 </tr>
                 <tr>
                     <td colspan="2">Esta seguro que quiere eliminar este Registro?</td>
@@ -52,7 +52,7 @@
                 <tr>
                     <th colspan="2">
                         <input type="submit" value="Eliminar" name="btnEliminar"/>
-                        <input type="button" value="Cancelar" name="btnCancelar" onclick="location.href = 'menuempleado.jsp'"/>
+                        <input type="button" value="Cancelar" name="btnCancelar" onclick="location.href = 'menumulta.jsp'"/>
                     </th>
                 </tr>
             </table>
