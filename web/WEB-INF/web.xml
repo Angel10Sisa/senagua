@@ -76,6 +76,10 @@
         <servlet-name>ControlEliMulta</servlet-name>
         <servlet-class>com.senagua.controlador.ControlEliminarMulta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlMosUsuario</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>ControlEliMulta</servlet-name>
         <url-pattern>/EliminarMulta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlMosUsuario</servlet-name>
+        <url-pattern>/MostrarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

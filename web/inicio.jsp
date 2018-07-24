@@ -18,6 +18,7 @@
         <h3><a href="menutipocliente.jsp">Tipo Cliente</a></h3>
         <h3><a href="menutipomedidor.jsp">Tipo Medidor</a></h3>
         <h3><a href="menumulta.jsp">Multas</a></h3>
+        <h3><a href="menuusuario.jsp">Usuarios</a></h3>
     </center>
     </body>
 </html>
