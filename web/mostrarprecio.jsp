@@ -57,8 +57,8 @@
                     </a>
                 </center></td>
                 <td><center>
-                    <a href="xxxxxx.jsp?ci=<%=precio.getIdprecio()%>" title="Eliminar Precio" style="cursor:pointer">
-                        <img src="images/eliminar.png" alt="" width="50" height="50"/>
+                    <a href="menuprecio.jsp" title="Salir" style="cursor:pointer">
+                        <img src="images/salir.png" alt="" width="50" height="50"/>
                     </a>
                 </center></td>
                 </tr>
@@ -68,7 +68,6 @@
                 }
 
             %>
-            <input type="button" value="Salir" name="btnSalir" onclick="location.href = 'menuprecio.jsp'"/>
         </form>
         
     </center>

@@ -17,5 +17,6 @@
         <h3><a href="formulariobuscarusuarionombre.jsp">Buscar Nombre</a></h3>
         <h3><a href="formulariobuscarusuarioapellido.jsp">Buscar Apellido</a></h3>
         <h3><a href="formulariobuscarusuariomedidor.jsp">Buscar Numero de Medidor</a></h3>
+        <h3><a href="menuusuario.jsp">MENU USUARIO</a></h3>
     </body>
 </html>
