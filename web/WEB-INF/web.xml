@@ -92,6 +92,14 @@
         <servlet-name>ControlElUsuario</servlet-name>
         <servlet-class>com.senagua.controlador.ControlEliminarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlMPrecio</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarPrecio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlEdarPrecio</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEditarPrecio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>ControlElUsuario</servlet-name>
         <url-pattern>/EliminarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlMPrecio</servlet-name>
+        <url-pattern>/MostrarPrecio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlEdarPrecio</servlet-name>
+        <url-pattern>/EditarPrecio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
