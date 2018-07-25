@@ -40,31 +40,12 @@
                     <td>Lectura Final</td>
                     <td>Fecha de Lectura Final</td>
                     <td>Consumo</td>
-                    <%
-                        int codigo=0;
-                        int codigomayor=0, codigomenor=0;
-                        List<Consumo> lista1=new ArrayList<Consumo>();
-                        IConsumo dao1=new ConsumoImp();
-                        try {
-                                lista1=dao1.obtener();
-                                for(Consumo con:lista1){
-                                    codigo=con.getIdconsumo();
-                                    codigomenor=codigo;
-                                    if(codigomenor>codigomayor){
-                                        codigomayor=codigomenor;
-                                    }
-                                }
-                            } catch (Exception e) {
-                            }
-                    %>
                     <td colspan="2">
-                        <a href="formularioingresoconsumo.jsp?ci=<%=codigomayor%>" title="Nuevo Consumo" style="cursor:pointer">
-                            <img src="images/nuevo.png" alt="" width="50" height="50"/>
-                        </a>
                     </td>
                 </tr>
                 <tr>
                     <%
+                        int codigomayor = 0, codigomenor = 0;
                         String cedula = request.getParameter("txtCedula");
                         Cliente cliente = new Cliente();
                         ICliente daocliente = new ClienteImp();
@@ -80,6 +61,7 @@
                                     listaconsumo = daoconsumo.obtener();
                                     for (Consumo consumo : listaconsumo) {
                                         if (consumo.getMedidor().getIdmedidor() == cliente.getIdcliente()) {
+
                     %>
                     <td><%=consumo.getIdconsumo()%></td>
                     <td><%=consumo.getMedidor().getNumeromedidor()%></td>
@@ -99,6 +81,10 @@
                 </center></td>    
                 </tr>
                 <%
+                                        codigomenor = consumo.getIdconsumo();
+                                        if (codigomenor > codigomayor) {
+                                            codigomayor = codigomenor;
+                                        }
                                     }
                                 }
                             }
@@ -107,6 +93,13 @@
                         System.out.println(e.getMessage());
                     }
                 %>
+                <tr>
+                    <td colspan="12"><center>
+                    <a href="formularioingresoconsumo.jsp?ci=<%=codigomayor%>" title="Nuevo Consumo" style="cursor:pointer">
+                        <img src="images/nuevo.png" alt="" width="50" height="50"/>
+                    </a>
+                </center></td>
+                </tr>
             </table>
         </form>
         <a href="menuconsumo.jsp">MENU CONSUMO</a>
