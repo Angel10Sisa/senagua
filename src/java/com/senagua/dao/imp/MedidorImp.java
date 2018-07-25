@@ -147,4 +147,34 @@ public class MedidorImp implements IMedidor {
         return lista;
     }
 
+    @Override
+    public Medidor obtenernumero(String numeromedidor) throws Exception {
+        Medidor medidor = null;
+        String sql = "SELECT idmedidor, numeromedidor, cliente, tipo, marca, modelo, detalle\n"
+                + "  FROM medidor WHERE numeromedidor=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, numeromedidor));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql, lstPar);
+            while (rst.next()) {
+                medidor = new Medidor();
+                ICliente cliente = new ClienteImp();
+                ITipomedidor tipomedidor = new TipomedidorImp();
+                medidor.setIdmedidor(rst.getInt(1));
+                medidor.setNumeromedidor(rst.getString(2));
+                medidor.setCliente(cliente.obtener(rst.getInt(3)));
+                medidor.setTipo(tipomedidor.obtener(rst.getInt(4)));
+                medidor.setMarca(rst.getString(5));
+                medidor.setModelo(rst.getString(6));
+                medidor.setDetalle(rst.getString(7));
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return medidor;
+    }
+
 }

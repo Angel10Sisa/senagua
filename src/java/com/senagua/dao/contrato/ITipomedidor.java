@@ -20,6 +20,8 @@ public interface ITipomedidor {
     int eliminar(Tipomedidor tipomedidor) throws Exception;
 
     Tipomedidor obtener(int idtipomedidor) throws Exception;
+    
+    Tipomedidor obtenernombre(String caracteristica) throws Exception;
 
     List<Tipomedidor> obtener() throws Exception;
     

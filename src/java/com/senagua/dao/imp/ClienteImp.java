@@ -154,4 +154,99 @@ public class ClienteImp implements ICliente {
         return lista;
     }
 
+    @Override
+    public Cliente obtenercedula(String cedula) throws Exception {
+        Cliente cliente = null;
+        String sql = "SELECT idcliente, cedula, nombre, apellido, tipo, celular, direccion, \n"
+                + "       email, observacion FROM cliente WHERE cedula=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, cedula));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql, lstPar);
+            while (rst.next()) {
+                cliente = new Cliente();
+                ITipocliente tipo = new TipoclienteImp();
+                cliente.setIdcliente(rst.getInt(1));
+                cliente.setCedula(rst.getString(2));
+                cliente.setNombre(rst.getString(3));
+                cliente.setApellido(rst.getString(4));
+                cliente.setTipocliente(tipo.obtener(rst.getInt(5)));
+                cliente.setCelular(rst.getString(6));
+                cliente.setDireccion(rst.getString(7));
+                cliente.setEmail(rst.getString(8));
+                cliente.setObservacion(rst.getString(9));
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return cliente;
+    }
+
+    @Override
+    public List<Cliente> obtenernombre(String nombre) throws Exception {
+        List<Cliente> lista = new ArrayList<>();
+        String sql = "SELECT idcliente, cedula, nombre, apellido, tipo, celular, direccion, \n"
+                + "       email, observacion FROM cliente WHERE nombre=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, nombre));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql,lstPar);
+            while (rst.next()) {
+                Cliente cliente = new Cliente();
+                ITipocliente tipo = new TipoclienteImp();
+                cliente.setIdcliente(rst.getInt(1));
+                cliente.setCedula(rst.getString(2));
+                cliente.setNombre(rst.getString(3));
+                cliente.setApellido(rst.getString(4));
+                cliente.setTipocliente(tipo.obtener(rst.getInt(5)));
+                cliente.setCelular(rst.getString(6));
+                cliente.setDireccion(rst.getString(7));
+                cliente.setEmail(rst.getString(8));
+                cliente.setObservacion(rst.getString(9));
+                lista.add(cliente);
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return lista; 
+    }
+
+    @Override
+    public List<Cliente> obtenerapellido(String apellido) throws Exception {
+        List<Cliente> lista = new ArrayList<>();
+        String sql = "SELECT idcliente, cedula, nombre, apellido, tipo, celular, direccion, \n"
+                + "       email, observacion FROM cliente WHERE apellido=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, apellido));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql,lstPar);
+            while (rst.next()) {
+                Cliente cliente = new Cliente();
+                ITipocliente tipo = new TipoclienteImp();
+                cliente.setIdcliente(rst.getInt(1));
+                cliente.setCedula(rst.getString(2));
+                cliente.setNombre(rst.getString(3));
+                cliente.setApellido(rst.getString(4));
+                cliente.setTipocliente(tipo.obtener(rst.getInt(5)));
+                cliente.setCelular(rst.getString(6));
+                cliente.setDireccion(rst.getString(7));
+                cliente.setEmail(rst.getString(8));
+                cliente.setObservacion(rst.getString(9));
+                lista.add(cliente);
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return lista; 
+    }
+
 }

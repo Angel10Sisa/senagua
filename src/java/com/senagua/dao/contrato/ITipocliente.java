@@ -21,6 +21,8 @@ public interface ITipocliente {
     int eliminar(Tipocliente tipocliente) throws Exception;
 
     Tipocliente obtener(int idtipocliente) throws Exception;
+    
+    Tipocliente obtenernombre(String nombre) throws Exception;
 
     List<Tipocliente> obtener() throws Exception;
 }

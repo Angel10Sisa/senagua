@@ -21,7 +21,9 @@ public interface IMedidor {
     int eliminar(Medidor medidor) throws Exception;
 
     Medidor obtener(int idmedidor) throws Exception;
-
+    
+    Medidor obtenernumero(String numeromedidor) throws Exception;
+    
     List<Medidor> obtener() throws Exception;
     
 }

@@ -17,6 +17,9 @@ public interface ICliente {
     int modificar(Cliente cliente);
     int eliminar(Cliente cliente);
     Cliente obtener(int idcliente)throws Exception;
+    Cliente obtenercedula(String cedula)throws Exception;
+    List<Cliente> obtenernombre(String nombre)throws Exception;
+    List<Cliente> obtenerapellido(String apellido)throws Exception;
     List<Cliente> obtener()throws Exception;
     
 }

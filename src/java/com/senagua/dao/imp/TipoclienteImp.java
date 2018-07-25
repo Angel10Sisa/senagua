@@ -124,4 +124,30 @@ public class TipoclienteImp implements ITipocliente {
         return lista;
     }
 
+    @Override
+    public Tipocliente obtenernombre(String nombre) throws Exception {
+        Tipocliente tipocliente = null;
+        String sql = "SELECT idtipocliente, nombre, descuento, valor, detalle\n"
+                + "  FROM public.tipocliente WHERE nombre=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, nombre));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql, lstPar);
+            while (rst.next()) {
+                tipocliente = new Tipocliente();
+                tipocliente.setIdtipocliente(rst.getInt(1));
+                tipocliente.setNombre(rst.getString(2));
+                tipocliente.setDescuento(rst.getString(3));
+                tipocliente.setValor(rst.getDouble(4));
+                tipocliente.setDetalle(rst.getString(5));
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return tipocliente;
+    }
+
 }

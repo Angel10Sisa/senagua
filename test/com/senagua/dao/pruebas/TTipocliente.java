@@ -59,6 +59,14 @@ public class TTipocliente {
         } catch (Exception e) {
         }
         assertTrue(obtenida != null);
+        //OBTENER NOMBRE
+        obtenida = null;
+        try {
+            obtenida = dao.obtenernombre("normal");
+            System.out.println(obtenida.getNombre());
+        } catch (Exception e) {
+        }
+        assertTrue(obtenida != null);
 
 //LISTAR
         List<Tipocliente> lista = new ArrayList<>();

@@ -125,4 +125,28 @@ public class TipomedidorImp implements ITipomedidor {
         return lista;
     }
 
+    @Override
+    public Tipomedidor obtenernombre(String caracteristica) throws Exception {
+        Tipomedidor medidor = null;
+        String sql = "SELECT idtipomedidor, caracteristica, multa, observacion FROM tipomedidor WHERE caracteristica=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, caracteristica));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql, lstPar);
+            while (rst.next()) {
+                medidor = new Tipomedidor();
+                medidor.setIdtipomedidor(rst.getInt(1));
+                medidor.setCaracteristica(rst.getString(2));
+                medidor.setMulta(rst.getDouble(3));
+                medidor.setObservacion(rst.getString(4));
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return medidor;
+    }
+
 }

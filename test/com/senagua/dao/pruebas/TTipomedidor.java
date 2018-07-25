@@ -51,6 +51,14 @@ public class TTipomedidor {
         } catch (Exception e) {
         }
         assertTrue(obtenida != null);
+        //OBTENER Nombre
+        obtenida = null;
+        try {
+            obtenida = dao.obtenernombre("nose");
+            System.out.println(obtenida.getCaracteristica());
+        } catch (Exception e) {
+        }
+        assertTrue(obtenida != null);
         //LISTAR
         List<Tipomedidor> lista = new ArrayList<>();
         try {
