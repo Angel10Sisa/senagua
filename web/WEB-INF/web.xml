@@ -100,6 +100,10 @@
         <servlet-name>ControlEdarPrecio</servlet-name>
         <servlet-class>com.senagua.controlador.ControlEditarPrecio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlIConsumo</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoConsumo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>ControlEdarPrecio</servlet-name>
         <url-pattern>/EditarPrecio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlIConsumo</servlet-name>
+        <url-pattern>/IngresoConsumo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

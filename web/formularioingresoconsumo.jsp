@@ -17,7 +17,7 @@
     <body>
     <center>
         <h1>INGRESO DE CONSUMO MENSUAL</h1>
-        <form name="sn" action="xxxxxx" method="POST">
+        <form name="sn" action="IngresoConsumo" method="POST">
             <%
                 String cod = request.getParameter("ci");
                 int codigo = Integer.parseInt(cod);
@@ -34,7 +34,7 @@
                     </td>
                     <td>Numero de Medidor:</td>
                     <td>
-                        <input type="text" name="txtNumeroMedidor" value="<%=consumo.getMedidor().getNumeromedidor()%>" required="required" placeholder="Codigo" readonly=”readonly”/>
+                        <input type="text" name="txtNumeromedidor" value="<%=consumo.getMedidor().getNumeromedidor()%>" required="required" placeholder="Codigo" readonly=”readonly”/>
                     </td>
                 </tr>
                 <tr>
@@ -48,23 +48,21 @@
                     </td>
                 </tr>                
                 <tr>
+                    <td>Lectura Anterior</td>
+                    <td>
+                        <input type="text" name="txtLeturaanterior" value="<%=consumo.getLecturaactual()%>" required="required" placeholder="Lectura anterior de medidor" readonly=”readonly”/>
+                    </td>
                     <td>Lectura Actual:</td>
                     <td>
                         <input type="text" name="txtLeturaactual" value="" required="required" placeholder="Lectura actual de medidor"/>
                     </td>
-                    <td></td>
-                    <td></td>
                 </tr>                
                 <tr>
                     <td colspan="2"><center>
-                    <a href="XXXXXXXX.jsp" title="Salir" style="cursor:pointer">
-                        <img src="images/guardar.png" alt="" width="50" height="50"/>
-                    </a>
+                    <input type="submit" value="Guardar" name="btnGuardar"/>
                 </center></td>
                 <td colspan="2"><center>
-                    <a href="menuconsumo.jsp" title="Salir" style="cursor:pointer">
-                        <img src="images/salir.png" alt="" width="50" height="50"/>
-                    </a>
+                    <input type="button" value="Cancelar" name="btnCancelar" onclick="location.href = 'menuconsumo.jsp'"/>
                 </center></td>
                 </tr>
             </table>
