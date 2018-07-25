@@ -80,6 +80,18 @@
         <servlet-name>ControlMosUsuario</servlet-name>
         <servlet-class>com.senagua.controlador.ControlMostrarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioDatos</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlMostrarUsuarioDatos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlInUsuario</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlElUsuario</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlEliminarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -159,6 +171,18 @@
     <servlet-mapping>
         <servlet-name>ControlMosUsuario</servlet-name>
         <url-pattern>/MostrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioDatos</servlet-name>
+        <url-pattern>/MostrarUsuarioDatos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlInUsuario</servlet-name>
+        <url-pattern>/IngresoUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlElUsuario</servlet-name>
+        <url-pattern>/EliminarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,13 +1,20 @@
 <%-- 
-    Document   : listausuario
-    Created on : 23-jul-2018, 23:12:30
+    Document   : listausuarioapellido
+    Created on : 25-jul-2018, 2:21:54
     Author     : Angel-Pc
 --%>
 
-<%@page import="com.senagua.dao.contrato.IMedidor"%>
 <%@page import="com.senagua.dao.imp.MedidorImp"%>
+<%@page import="com.senagua.dao.contrato.IMedidor"%>
 <%@page import="com.senagua.rnegocio.entidades.Medidor"%>
+<%@page import="com.senagua.dao.imp.ClienteImp"%>
+<%@page import="com.senagua.dao.imp.ClienteImp"%>
+<%@page import="com.senagua.dao.contrato.ICliente"%>
+<%@page import="com.senagua.dao.contrato.ICliente"%>
+<%@page import="com.senagua.rnegocio.entidades.Cliente"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,12 +47,17 @@
                 </tr>
                 <tr>
                     <%
+                        String apellido = request.getParameter("txtApellido");
+                        List<Cliente> listacliente = new ArrayList<Cliente>();
+                        ICliente daocliente = new ClienteImp();
                         List<Medidor> lista = new ArrayList<Medidor>();
                         IMedidor dao = new MedidorImp();
                         try {
                             lista = dao.obtener();
                             for (Medidor medidor : lista) {
-
+                                listacliente = daocliente.obtenerapellido(apellido);
+                                for (Cliente cli : listacliente) {
+                                    if (medidor.getIdmedidor() == cli.getIdcliente()) {
                     %>
                     <td><%=medidor.getIdmedidor()%></td>
                     <td><%=medidor.getNumeromedidor()%></td>
@@ -64,6 +76,8 @@
                 </center></td>    
                 </tr>
                 <%                    }
+                            }
+                        }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
