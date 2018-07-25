@@ -16,7 +16,7 @@
     </head>
     <body>
     <center>
-        <h1>DATOS DEL USUARIO</h1>
+        <h1>DATOS DEL CONSUMO</h1>
         <form name="sn" action="xxxxxx" method="POST">
             <%
                 String cod = request.getParameter("ci");
@@ -92,8 +92,10 @@
                     <td>
                         <input type="text" name="txtConsumo" value="<%=consumo.getConsumo()%>" required="required" placeholder="Modelo medidor" readonly=”readonly”/>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td>Cedula Usuario:</td>
+                    <td>
+                        <input type="text" name="txtNombreUsuario" value="<%=consumo.getMedidor().getCliente().getCedula()%>" required="required" placeholder="Cedula sin guion" readonly=”readonly”/>
+                    </td>
                 </tr>
                 <tr>
                 <td colspan="2"><center>
