@@ -40,7 +40,7 @@
                 <tr>
                     <td>Precio Exceso:</td>
                     <td>
-                        <input type="text" name="txtPrecioxceso" value="<%=precio.getPrecioexceso()%>" required="required" placeholder="Precio Exceso"/>
+                        <input type="text" name="txtPrecioexceso" value="<%=precio.getPrecioexceso()%>" required="required" placeholder="Precio Exceso"/>
                     </td>                    
                 </tr>
                 <tr>
