@@ -16,7 +16,7 @@
     </head>
     <body>
     <center>
-        <h1>DATOS DEL CONSUMO</h1>
+        <h1>DATOS DEL MULTA</h1>
         <form name="sn" action="xxxxxx" method="POST">
             <%
                 String cod = request.getParameter("ci");

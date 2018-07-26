@@ -21,7 +21,8 @@
         <h3><a href="menuusuario.jsp">Usuarios</a></h3>
         <h3><a href="menuprecio.jsp">Precio</a></h3>       
         <h3><a href="menuconsumo.jsp">Consumo</a></h3>  
-        <h3><a href="menumultausuario.jsp">Multa Usuario</a></h3>  
+        <h3><a href="menumultausuario.jsp">Multa Usuario</a></h3> 
+        <h3><a href="menufacturamulta.jsp">Factura Multa</a></h3> 
     </center>
     </body>
 </html>
