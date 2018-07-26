@@ -41,7 +41,7 @@ public class MultaxmedidorImp implements IMultaxmedidor {
         } finally {
             con.desconectar();
         }
-        return  afectadas;
+        return afectadas;
     }
 
     @Override
@@ -138,6 +138,22 @@ public class MultaxmedidorImp implements IMultaxmedidor {
             con.desconectar();
         }
         return lista;
+    }
+
+    @Override
+    public int eliminar() throws Exception {
+        int numFilasAfectadas = 0;
+        String sql = "DELETE FROM multaxmedidor";
+        Conexion con = new Conexion();
+        con.conectar();
+        try {
+            numFilasAfectadas = con.ejecutaComando(sql);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return numFilasAfectadas;
     }
 
 }

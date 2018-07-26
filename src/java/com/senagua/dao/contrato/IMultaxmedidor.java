@@ -18,6 +18,8 @@ public interface IMultaxmedidor {
     int modificar(Multaxmedidor multaxmedidor) throws Exception;
 
     int eliminar(Multaxmedidor multaxmedidor) throws Exception;
+    
+    int eliminar() throws Exception;
 
     Multaxmedidor obtener(int idmultamedidor) throws Exception;
 

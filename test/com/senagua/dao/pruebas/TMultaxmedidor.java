@@ -88,6 +88,13 @@ public class TMultaxmedidor {
         } catch (Exception e) {
         }
         assertTrue(eliminados > 0);
+        //ELIMINAR TODOS
+        int eliminadoss = 0;
+        try {
+            eliminadoss = dao.eliminar();
+        } catch (Exception e) {
+        }
+        assertTrue(eliminadoss > 0);
     
     }
 }
