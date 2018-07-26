@@ -12,9 +12,9 @@
         <title>SENAGUA</title>
     </head>
     <body>
-        <h1>MENU BUSCAR USUARIO</h1>
+        <h1>MENU BUSCAR CONSUMO</h1>
         <h3><a href="formulariobuscarcedula.jsp">Buscar Cedula</a></h3>
-        <h3><a href="XXXXXXXX.jsp">Buscar Numero de Medidor</a></h3>
+        <h3><a href="formulariobuscarconsumomedidor.jsp">Buscar Numero de Medidor</a></h3>
         <h3><a href="menuconsumo.jsp">MENU CONSUMO</a></h3>
     </body>
 </html>

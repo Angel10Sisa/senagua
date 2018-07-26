@@ -1,22 +1,16 @@
 <%-- 
-    Document   : listaconsumocedula
-    Created on : 25-jul-2018, 10:48:34
-    Author     : Internet
+    Document   : newjsplistaconsumo
+    Created on : 25-jul-2018, 23:46:27
+    Author     : Angel-Pc
 --%>
 
-<%@page import="java.util.AbstractList"%>
-<%@page import="com.senagua.dao.contrato.IConsumo"%>
-<%@page import="com.senagua.dao.imp.ConsumoImp"%>
-<%@page import="com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList"%>
-<%@page import="com.senagua.rnegocio.entidades.Consumo"%>
-<%@page import="com.senagua.dao.imp.MedidorImp"%>
-<%@page import="com.senagua.dao.contrato.IMedidor"%>
-<%@page import="com.senagua.rnegocio.entidades.Medidor"%>
-<%@page import="com.senagua.dao.imp.ClienteImp"%>
-<%@page import="com.senagua.dao.contrato.ICliente"%>
-<%@page import="com.senagua.rnegocio.entidades.Cliente"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
+<%@page import="com.senagua.dao.contrato.IConsumo"%>
+<%@page import="com.senagua.dao.contrato.IConsumo"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.senagua.dao.imp.ConsumoImp"%>
+<%@page import="com.senagua.rnegocio.entidades.Consumo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,32 +34,15 @@
                     <td>Lectura Final</td>
                     <td>Fecha de Lectura Final</td>
                     <td>Consumo</td>
-                    <%
-                        String cedula = request.getParameter("txtCedula");
-                    %>
-                    <td colspan="2"><center>
-                    <a href="formularioingresoconsumo.jsp?ci=<%=cedula%>" title="Nuevo Consumo" style="cursor:pointer">
-                        <img src="images/nuevo.png" alt="" width="50" height="50"/>
-                    </a>
-                </center></td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr>
                     <%
-                        Cliente cliente = new Cliente();
-                        ICliente daocliente = new ClienteImp();
-                        List<Medidor> lista = new ArrayList<Medidor>();
-                        IMedidor dao = new MedidorImp();
+                        List<Consumo> listaconsumo = new ArrayList<Consumo>();
+                        IConsumo daoconsumo = new ConsumoImp();
                         try {
-                            lista = dao.obtener();
-                            for (Medidor medidor : lista) {
-                                cliente = daocliente.obtenercedula(cedula);
-                                if (medidor.getIdmedidor() == cliente.getIdcliente()) {
-                                    List<Consumo> listaconsumo = new ArrayList<Consumo>();
-                                    IConsumo daoconsumo = new ConsumoImp();
-                                    listaconsumo = daoconsumo.obtener();
-                                    for (Consumo consumo : listaconsumo) {
-                                        if (consumo.getMedidor().getIdmedidor() == cliente.getIdcliente()) {
-
+                            listaconsumo = daoconsumo.obtener();
+                            for (Consumo consumo : listaconsumo) {
                     %>
                     <td><%=consumo.getIdconsumo()%></td>
                     <td><%=consumo.getMedidor().getNumeromedidor()%></td>
@@ -85,9 +62,6 @@
                 </center></td>    
                 </tr>
                 <%
-                                    }
-                                }
-                            }
                         }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -97,4 +71,5 @@
         </form>
         <a href="menuconsumo.jsp">MENU CONSUMO</a>
     </body>
+</body>
 </html>

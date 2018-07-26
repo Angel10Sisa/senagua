@@ -1,22 +1,20 @@
 <%-- 
-    Document   : listaconsumocedula
-    Created on : 25-jul-2018, 10:48:34
-    Author     : Internet
+    Document   : listaconsumomedidor
+    Created on : 25-jul-2018, 23:32:44
+    Author     : Angel-Pc
 --%>
 
-<%@page import="java.util.AbstractList"%>
-<%@page import="com.senagua.dao.contrato.IConsumo"%>
 <%@page import="com.senagua.dao.imp.ConsumoImp"%>
-<%@page import="com.sun.javafx.scene.control.skin.VirtualFlow.ArrayLinkedList"%>
+<%@page import="com.senagua.dao.contrato.IConsumo"%>
 <%@page import="com.senagua.rnegocio.entidades.Consumo"%>
 <%@page import="com.senagua.dao.imp.MedidorImp"%>
 <%@page import="com.senagua.dao.contrato.IMedidor"%>
 <%@page import="com.senagua.rnegocio.entidades.Medidor"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="com.senagua.dao.imp.ClienteImp"%>
 <%@page import="com.senagua.dao.contrato.ICliente"%>
 <%@page import="com.senagua.rnegocio.entidades.Cliente"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,7 +39,14 @@
                     <td>Fecha de Lectura Final</td>
                     <td>Consumo</td>
                     <%
-                        String cedula = request.getParameter("txtCedula");
+                        String numeromedidor = request.getParameter("txtNumeromedidor");
+                        Medidor medi=new Medidor();
+                        IMedidor daomedi=new MedidorImp();
+                        try {
+                                medi=daomedi.obtenernumero(numeromedidor);
+                            } catch (Exception e) {
+                            }
+                        String cedula = medi.getCliente().getCedula();
                     %>
                     <td colspan="2"><center>
                     <a href="formularioingresoconsumo.jsp?ci=<%=cedula%>" title="Nuevo Consumo" style="cursor:pointer">

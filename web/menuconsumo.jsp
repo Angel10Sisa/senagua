@@ -14,7 +14,7 @@
     <body>
         <h1>Menu Consumo</h1>
         <h3><a href="formulariomostrarconsumo.jsp">Mostrar Consumo</a></h3>
-        <h3><a href="xxxxxxx">Ingresar Consumo</a></h3>
+        <h3><a href="listaconsumo.jsp">Lista Consumo</a></h3>
         <h3><a href="inicio.jsp">INICIO</a></h3>
     </body>
 </html>

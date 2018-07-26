@@ -13,7 +13,12 @@ import com.senagua.rnegocio.entidades.Consumo;
 import com.senagua.rnegocio.entidades.Medidor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -53,9 +58,9 @@ public class ControlIngresoConsumo extends HttpServlet {
             int codigomayor = 0, codigomenor = 0;
             List<Consumo> lista1 = new ArrayList<Consumo>();
             IConsumo dao1 = new ConsumoImp();
-            String numeromedidor=request.getParameter("txtNumeromedidor");
-            Medidor medidor=new Medidor();
-            IMedidor daomedidor=new MedidorImp();
+            String numeromedidor = request.getParameter("txtNumeromedidor");
+            Medidor medidor = new Medidor();
+            IMedidor daomedidor = new MedidorImp();
             try {
                 lista1 = dao1.obtener();
                 for (Consumo con : lista1) {
@@ -65,18 +70,71 @@ public class ControlIngresoConsumo extends HttpServlet {
                         codigomayor = codigomenor;
                     }
                 }
-                medidor=daomedidor.obtenernumero(numeromedidor);
+                medidor = daomedidor.obtenernumero(numeromedidor);
             } catch (Exception e) {
             }
-            Consumo consu=new Consumo();
-            IConsumo daoconsu=new ConsumoImp();
+            Consumo consu = new Consumo();
+            IConsumo daoconsu = new ConsumoImp();
             try {
-                
+                int Idconsumo = Integer.parseInt(request.getParameter("txtIdconsumo"));
+                consu = daoconsu.obtener(Idconsumo);
             } catch (Exception e) {
             }
-            codigomayor=codigomayor+1;            
-            out.println(codigomayor);out.println("<br>");
-            out.println(medidor.getIdmedidor());out.println("<br>");
+            codigomayor = codigomayor + 1;
+            int lecturainicial = consu.getLecturainicial();
+            Date fechalecturainicial = consu.getFechalecturainicial();
+
+            String fecha1;
+            DateFormat dateFormatter;
+            dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT);
+            fecha1 = dateFormatter.format(fechalecturainicial);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+            Date date1=null;
+            try {
+                date1 = formatter.parse(fecha1);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            int lecturaanterior = consu.getLecturaactual();
+            Date fechalecturaanterior = consu.getFechalecturaactual();
+
+            String fecha2;
+            DateFormat dateFormatter1;
+            dateFormatter1 = DateFormat.getDateInstance(DateFormat.DEFAULT);
+            fecha2 = dateFormatter.format(fechalecturaanterior);
+            SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MMM-yyyy");
+            Date date2=null;
+            try {
+                date2 = formatter1.parse(fecha2);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            out.println(date2);
+
+            int lecturaactural = Integer.parseInt(request.getParameter("txtLecturaactual"));
+            Date fechalecturaactual = new Date();
+            int lecturafinal = lecturaactural;
+            Date fechalecturafinal = new Date();
+            int consumo = lecturaactural - lecturaanterior;
+            int insertar = 0;
+            try {
+                Consumo consumoingreso = new Consumo(codigomayor, medidor, lecturainicial, date1, lecturaanterior, date2, lecturaactural, fechalecturaactual, lecturafinal, fechalecturafinal, consumo);
+                insertar = daoconsu.insertar(consumoingreso);
+            } catch (Exception e) {
+            }
+            if (insertar > 0) {
+                String error = "Consumo Insertado.";
+                request.getSession().setAttribute("error", error);
+                request.getRequestDispatcher("menuconsumo.jsp").forward(request, response);
+            } else {
+                String error = "No se puedo guardar Datos.";
+                request.getSession().setAttribute("error", error);
+                System.out.println(error);
+                //request.getRequestDispatcher("inicio.jsp").forward(request, response);
+            }
+
         }
     }
 
