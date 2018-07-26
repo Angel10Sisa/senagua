@@ -104,6 +104,10 @@
         <servlet-name>ControlIConsumo</servlet-name>
         <servlet-class>com.senagua.controlador.ControlIngresoConsumo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlIngMultaUsuario</servlet-name>
+        <servlet-class>com.senagua.controlador.ControlIngresoMultaUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpleado</servlet-name>
         <url-pattern>/MostrarEmpleado</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>ControlIConsumo</servlet-name>
         <url-pattern>/IngresoConsumo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlIngMultaUsuario</servlet-name>
+        <url-pattern>/IngresoMultaUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

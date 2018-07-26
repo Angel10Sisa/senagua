@@ -20,6 +20,8 @@ public interface IMulta {
     int eliminar(Multa multa) throws Exception;
 
     Multa obtener(int idmulta) throws Exception;
+    
+    Multa obtenernombre(String nombre) throws Exception;
 
     List<Multa> obtener() throws Exception;
     

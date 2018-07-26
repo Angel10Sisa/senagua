@@ -71,5 +71,4 @@
         </form>
         <a href="menuconsumo.jsp">MENU CONSUMO</a>
     </body>
-</body>
 </html>

@@ -132,4 +132,30 @@ public class MultaImp implements IMulta {
         return lista;
     }
 
+    @Override
+    public Multa obtenernombre(String nombre) throws Exception {
+        Multa multa = null;
+        String sql = "SELECT idmulta, nombre, valor, fecha, descripcion\n"
+                + "  FROM multa WHERE nombre=?;";
+        Conexion con = new Conexion();
+        List<Parametro> lstPar = new ArrayList<>();
+        lstPar.add(new Parametro(1, nombre));
+        try {
+            ResultSet rst = con.ejecutarQuery(sql, lstPar);
+            while (rst.next()) {
+                multa = new Multa();
+                multa.setIdmulta(rst.getInt(1));
+                multa.setNombre(rst.getString(2));
+                multa.setValor(rst.getDouble(3));
+                multa.setFecha(rst.getDate(4));
+                multa.setDescripcion(rst.getString(5));
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            con.desconectar();
+        }
+        return multa;
+    }
+
 }
